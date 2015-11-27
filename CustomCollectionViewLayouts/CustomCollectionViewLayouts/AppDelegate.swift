@@ -6,6 +6,8 @@
 //  Copyright © 2015 VictorChee. All rights reserved.
 //
 
+// http://vonglo.me/2015/08/31/UICollectionView自定义布局之风火轮/?utm_source=tuicool
+
 import UIKit
 
 @UIApplicationMain

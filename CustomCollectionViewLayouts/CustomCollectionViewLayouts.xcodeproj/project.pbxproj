@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		BB040BB31C082A82003C360E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB040BB21C082A82003C360E /* AppDelegate.swift */; };
-		BB040BB51C082A82003C360E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB040BB41C082A82003C360E /* ViewController.swift */; };
+		BB040BB51C082A82003C360E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB040BB41C082A82003C360E /* CollectionViewController.swift */; };
 		BB040BB81C082A82003C360E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB040BB61C082A82003C360E /* Main.storyboard */; };
 		BB040BBA1C082A82003C360E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB040BB91C082A82003C360E /* Assets.xcassets */; };
 		BB040BBD1C082A82003C360E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB040BBB1C082A82003C360E /* LaunchScreen.storyboard */; };
+		BB040BC51C082C04003C360E /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB040BC41C082C04003C360E /* CollectionViewCell.swift */; };
+		BB040BC71C083916003C360E /* CircularCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB040BC61C083916003C360E /* CircularCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB040BAF1C082A82003C360E /* CustomCollectionViewLayouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCollectionViewLayouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB040BB21C082A82003C360E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB040BB41C082A82003C360E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BB040BB41C082A82003C360E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		BB040BB71C082A82003C360E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB040BB91C082A82003C360E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB040BBC1C082A82003C360E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB040BBE1C082A82003C360E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB040BC41C082C04003C360E /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		BB040BC61C083916003C360E /* CircularCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				BB040BB21C082A82003C360E /* AppDelegate.swift */,
-				BB040BB41C082A82003C360E /* ViewController.swift */,
+				BB040BB41C082A82003C360E /* CollectionViewController.swift */,
+				BB040BC41C082C04003C360E /* CollectionViewCell.swift */,
+				BB040BC61C083916003C360E /* CircularCollectionViewLayout.swift */,
 				BB040BB61C082A82003C360E /* Main.storyboard */,
 				BB040BB91C082A82003C360E /* Assets.xcassets */,
 				BB040BBB1C082A82003C360E /* LaunchScreen.storyboard */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB040BB51C082A82003C360E /* ViewController.swift in Sources */,
+				BB040BB51C082A82003C360E /* CollectionViewController.swift in Sources */,
 				BB040BB31C082A82003C360E /* AppDelegate.swift in Sources */,
+				BB040BC51C082C04003C360E /* CollectionViewCell.swift in Sources */,
+				BB040BC71C083916003C360E /* CircularCollectionViewLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
