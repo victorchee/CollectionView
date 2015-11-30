@@ -27,6 +27,6 @@ class CollectionViewCell: UICollectionViewCell {
         
         let circularLayoutAttributes = layoutAttributes as! CircularCollectionViewLayoutAttributes
         layer.anchorPoint = circularLayoutAttributes.anchorPoint
-        center.y += (circularLayoutAttributes.anchorPoint.y - 0.5) * bounds.height
+        center.y += (circularLayoutAttributes.anchorPoint.y - 0.5) * bounds.height // 改变了锚点之后，item 往上移动补偿
     }
 }
