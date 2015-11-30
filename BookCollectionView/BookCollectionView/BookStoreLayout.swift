@@ -9,7 +9,7 @@
 import UIKit
 
 class BookStoreLayout: UICollectionViewFlowLayout {
-    private let pageSize = CGSize(width: 362, height: 536)
+    private let pageSize = CGSize(width: 300, height: 500)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

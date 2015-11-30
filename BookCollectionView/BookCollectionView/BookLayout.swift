@@ -9,7 +9,7 @@
 import UIKit
 
 class BookLayout: UICollectionViewFlowLayout {
-    private let pageSize = CGSize(width: 362, height: 536)
+    private let pageSize = CGSize(width: 300, height: 500)
     private var numberOfItems: Int = 0
     
     override func prepareLayout() {
@@ -66,11 +66,8 @@ class BookLayout: UICollectionViewFlowLayout {
     }
     
     private func getFrame(collectionView: UICollectionView) -> CGRect {
-        var frame = CGRect.zero
-        frame.origin.x = collectionView.bounds.width / 2.0 - pageSize.width / 2.0 + collectionView.contentOffset.x
-        frame.origin.y = (collectionView.contentSize.height - pageSize.height) / 2.0
-        frame.size = pageSize
-        return frame
+        let origin = CGPoint(x: collectionView.bounds.width / 2.0 - pageSize.width / 2.0 + collectionView.contentOffset.x, y: (collectionViewContentSize().height - pageSize.height) / 2.0)
+        return CGRect(origin: origin, size: pageSize)
     }
     
     private func getRatio(collectionView: UICollectionView, indexPath: NSIndexPath) -> CGFloat {

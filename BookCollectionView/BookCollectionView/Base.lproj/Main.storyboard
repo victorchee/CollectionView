@@ -14,6 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="h6k-nL-flR" customClass="BookStoreLayout" customModule="BookCollectionView" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCell" id="3uj-qi-ZWZ" customClass="BookCoverCell" customModule="BookCollectionView" customModuleProvider="target">
@@ -63,6 +64,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+                        <color key="backgroundColor" red="0.8862745098" green="0.8862745098" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="SCg-ZH-EY4" customClass="BookLayout" customModule="BookCollectionView" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookPageCell" id="82d-JF-Cvs" customClass="BookPageCell" customModule="BookCollectionView" customModuleProvider="target">
@@ -92,6 +94,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ehf-bx-tie" firstAttribute="centerX" secondItem="82d-JF-Cvs" secondAttribute="centerX" id="HuH-RC-njB"/>
                                     <constraint firstItem="ehf-bx-tie" firstAttribute="bottom" secondItem="82d-JF-Cvs" secondAttribute="bottomMargin" id="eVt-g3-enZ"/>

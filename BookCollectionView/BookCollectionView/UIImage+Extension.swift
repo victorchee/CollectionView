@@ -19,27 +19,31 @@ extension UIImage {
     }
     
     func imageByScalingAndCroppingForSize(targetSize: CGSize) -> UIImage {
-        var scaledSize = CGSize.zero
+        var scaledSize = targetSize
         var thumbnailPoint = CGPoint.zero
         
-        if !CGSizeEqualToSize(size, targetSize) {
+        if CGSizeEqualToSize(size, targetSize) == false {
             let widthFactor = targetSize.width / size.width
             let heightFactor = targetSize.height / size.height
             
-            let scaleFactor: CGFloat = widthFactor > heightFactor ? widthFactor : heightFactor
-            scaledSize = CGSizeMake(size.width * scaleFactor, size.height * scaleFactor)
+            let scaleFactor = max(widthFactor, heightFactor)
+            scaledSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
+            
             if widthFactor > heightFactor {
                 thumbnailPoint.y = (targetSize.height - scaledSize.height) * 0.5
             } else if widthFactor < heightFactor {
-                thumbnailPoint.x = (targetSize.width - scaledSize.height) * 0.5
+                thumbnailPoint.x = (targetSize.width - scaledSize.width) * 0.5
             }
         }
         
         UIGraphicsBeginImageContext(targetSize)
+        
         let thumbnailRect = CGRect(origin: thumbnailPoint, size: scaledSize)
         self.drawInRect(thumbnailRect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
+        
         UIGraphicsEndImageContext()
+        
         return image
     }
 }
