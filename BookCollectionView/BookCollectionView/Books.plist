@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>cover</key>
+		<string>cover1</string>
+		<key>pages</key>
+		<array>
+			<string>page-blank</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+		</array>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>cover2</string>
+		<key>pages</key>
+		<array>
+			<string>page-blank</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+		</array>
+	</dict>
+	<dict>
+		<key>cover</key>
+		<string>cover3</string>
+		<key>pages</key>
+		<array>
+			<string>page-blank</string>
+			<string>page-image</string>
+			<string>page-image</string>
+			<string>page-image</string>
+		</array>
+	</dict>
+</array>
+</plist>

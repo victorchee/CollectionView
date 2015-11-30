@@ -6,6 +6,13 @@
 //  Copyright © 2015 VictorChee. All rights reserved.
 //
 
+// http://www.raywenderlich.com/94565/how-to-create-an-ios-book-open-animation-part-1
+// http://www.raywenderlich.com/97690/how-to-create-an-ios-book-open-animation-part-2
+// http://vonglo.me/2015/08/31/如何创建一个翻书动画(Part1)/
+// http://vonglo.me/2015/09/01/如何创建一个翻书动画(Part2)/
+
+
+
 import UIKit
 
 @UIApplicationMain
