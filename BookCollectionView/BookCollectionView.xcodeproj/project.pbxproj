@@ -21,6 +21,8 @@
 		BB0335E61C0C1AB200D836FE /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0335E51C0C1AB200D836FE /* BookViewController.swift */; };
 		BB0335E81C0C23AC00D836FE /* BookStoreLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0335E71C0C23AC00D836FE /* BookStoreLayout.swift */; };
 		BB0335EA1C0C2BD100D836FE /* BookLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0335E91C0C2BD100D836FE /* BookLayout.swift */; };
+		BB0335EC1C0C4E1500D836FE /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0335EB1C0C4E1500D836FE /* CustomNavigationController.swift */; };
+		BB0335EE1C0C4F1300D836FE /* BookOpeningTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0335ED1C0C4F1300D836FE /* BookOpeningTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		BB0335E51C0C1AB200D836FE /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		BB0335E71C0C23AC00D836FE /* BookStoreLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookStoreLayout.swift; sourceTree = "<group>"; };
 		BB0335E91C0C2BD100D836FE /* BookLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookLayout.swift; sourceTree = "<group>"; };
+		BB0335EB1C0C4E1500D836FE /* CustomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		BB0335ED1C0C4F1300D836FE /* BookOpeningTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookOpeningTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				BB0335C41C0BF04D00D836FE /* AppDelegate.swift */,
+				BB0335EB1C0C4E1500D836FE /* CustomNavigationController.swift */,
+				BB0335ED1C0C4F1300D836FE /* BookOpeningTransition.swift */,
 				BB0335DF1C0BF9E700D836FE /* BookStoreViewController.swift */,
 				BB0335E11C0BFA0800D836FE /* BookCoverCell.swift */,
 				BB0335E71C0C23AC00D836FE /* BookStoreLayout.swift */,
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0335EE1C0C4F1300D836FE /* BookOpeningTransition.swift in Sources */,
+				BB0335EC1C0C4E1500D836FE /* CustomNavigationController.swift in Sources */,
 				BB0335E21C0BFA0800D836FE /* BookCoverCell.swift in Sources */,
 				BB0335D71C0BF0E900D836FE /* UIImage+Extension.swift in Sources */,
 				BB0335E41C0C1AA300D836FE /* BookPageCell.swift in Sources */,

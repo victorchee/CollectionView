@@ -62,7 +62,7 @@ class BookPageCell: UICollectionViewCell {
         return ratio
     }
     
-    private func updateShadowLayer(animated: Bool = false) {
+    func updateShadowLayer(animated animated: Bool = false) {
         let ratio: CGFloat = getRatioFromTransform()
         let inverseRatio = 1 - abs(ratio)
         if !animated {

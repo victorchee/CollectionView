@@ -9,11 +9,15 @@
 import UIKit
 
 class BookStoreViewController: UICollectionViewController {
+    var transition: BookOpeningTransition?
+    
     var books: [Book]? {
         didSet {
             collectionView?.reloadData()
         }
     }
+    
+    var selectedCell: BookCoverCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +26,10 @@ class BookStoreViewController: UICollectionViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "OpenBook" {
-            guard let cell = sender as? UICollectionViewCell else {
+            guard let cell = sender as? BookCoverCell else {
                 return
             }
+            selectedCell = cell
             guard let indexPath = collectionView?.indexPathForCell(cell) else {
                 return
             }
@@ -52,5 +57,14 @@ class BookStoreViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BookCoverCell", forIndexPath: indexPath) as! BookCoverCell
         cell.book = books?[indexPath.item]
         return cell
+    }
+}
+
+extension BookStoreViewController {
+    func animationControllerForPresentController(viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let transition = BookOpeningTransition()
+        transition.isPush = true
+        self.transition = transition
+        return transition
     }
 }
