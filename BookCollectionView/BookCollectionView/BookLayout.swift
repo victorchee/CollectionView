@@ -9,7 +9,17 @@
 import UIKit
 
 class BookLayout: UICollectionViewFlowLayout {
-    private let pageSize = CGSize(width: 300, height: 500)
+    private var pageSize: CGSize {
+        let ratio: CGFloat = 0.637323943661972 // 图片宽高比
+        var width = collectionView!.bounds.width / 2
+        var height = collectionView!.bounds.height - 44
+        if width / height > ratio {
+            width = height * ratio
+        } else {
+            height = width / ratio
+        }
+        return CGSize(width: width, height: height)
+    }
     private var numberOfItems: Int = 0
     
     override func prepareLayout() {
