@@ -50,13 +50,14 @@ class BookPageCell: UICollectionViewCell {
     
     private func getRatioFromTransform() -> CGFloat {
         var ratio: CGFloat = 0
-        print(layer.valueForKey("transform.rotation.y"))
-        let rotationY = CGFloat((layer.valueForKey("transform.rotation.y")?.floatValue)!)
-        
-        if isRightPage {
-            ratio = 1 - rotationY / CGFloat(-M_PI_2)
-        } else {
-            ratio = -(1 - rotationY / CGFloat(M_PI_2))
+        if let rotationYValue = layer.valueForKey("transform.rotation.y") {
+            let rotationY = CGFloat(rotationYValue.floatValue)
+            
+            if isRightPage {
+                ratio = 1 - rotationY / CGFloat(-M_PI_2)
+            } else {
+                ratio = -(1 - rotationY / CGFloat(M_PI_2))
+            }
         }
         
         return ratio

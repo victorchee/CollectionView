@@ -35,7 +35,19 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
             })
         } else {
             // pop
+            guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? BookViewController, let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? BookStoreViewController else {
+                return
+            }
+            container?.insertSubview(toViewController.view, belowSubview: fromViewController.view)
             
+            setStartPositionForPop(fromViewController, toViewController: toViewController)
+            
+            UIView.animateWithDuration(transitionDuration(transitionContext), animations: { () -> Void in
+                self.setEndPositionForPop(fromViewController, toViewController: toViewController)
+                }, completion: { (finished) -> Void in
+                    self.cleanupPop(fromViewController, toViewController: toViewController)
+                    transitionContext.completeTransition(finished)
+            })
         }
     }
     
@@ -61,6 +73,7 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
         cell.layer.transform = transform
     }
     
+    // MARK: - PUSH
     private func setStartPositionForPush(fromViewController: BookStoreViewController, toViewController: BookViewController) {
         toViewBackgroundColor = fromViewController.collectionView?.backgroundColor
         toViewController.collectionView?.backgroundColor = nil
@@ -90,5 +103,28 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func cleanupPush(fromViewController: BookStoreViewController, toViewController: BookViewController) {
         toViewController.collectionView?.backgroundColor = toViewBackgroundColor
+    }
+    
+    // MARK: - POP
+    private func setStartPositionForPop(fromViewController: BookViewController, toViewController: BookStoreViewController) {
+        toViewBackgroundColor = fromViewController.collectionView?.backgroundColor
+        fromViewController.collectionView?.backgroundColor = nil
+    }
+    
+    private func setEndPositionForPop(fromViewController: BookViewController, toViewController: BookStoreViewController) {
+        let coverCell = toViewController.selectedCell
+        for cell in toViewController.collectionView!.visibleCells() as! [BookCoverCell] {
+            if cell != coverCell {
+                cell.alpha = 1
+            }
+        }
+        for cell in fromViewController.collectionView!.visibleCells() as! [BookPageCell] {
+            closePageCell(cell)
+        }
+    }
+    
+    private func cleanupPop(fromViewController: BookViewController, toViewController: BookStoreViewController) {
+        fromViewController.collectionView?.backgroundColor = toViewBackgroundColor
+        toViewController.selectedCell?.alpha = 1
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BookViewController: UICollectionViewController {
+class BookViewController: UICollectionViewController {    
     var book: Book? {
         didSet {
             collectionView?.reloadData()

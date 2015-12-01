@@ -15,8 +15,15 @@ class CustomNavigationController: UINavigationController, UINavigationController
     }
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        let transition = BookOpeningTransition()
-        transition.isPush = operation == .Push
-        return transition
+        if operation == .Push {
+            if let from = fromVC as? BookStoreViewController {
+                return from.animationControllerForPresentController(toVC)
+            }
+        } else if operation == .Pop {
+            if let to = toVC as? BookStoreViewController {
+                return to.animationControllerForDismissController(to)
+            }
+        }
+        return nil
     }
 }

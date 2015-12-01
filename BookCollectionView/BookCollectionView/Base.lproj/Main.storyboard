@@ -41,7 +41,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="jMM-7m-h7o" id="yjh-ch-EVb"/>
-                                    <segue destination="lu0-BB-Jyb" kind="show" identifier="OpenBook" id="wwD-S9-2B2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -59,7 +58,7 @@
         <!--Book View Controller-->
         <scene sceneID="gFG-Ss-uxo">
             <objects>
-                <collectionViewController id="lu0-BB-Jyb" customClass="BookViewController" customModule="BookCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="BookViewController" id="lu0-BB-Jyb" customClass="BookViewController" customModule="BookCollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="YTj-Tc-857">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,7 +67,7 @@
                         <collectionViewLayout key="collectionViewLayout" id="SCg-ZH-EY4" customClass="BookLayout" customModule="BookCollectionView" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookPageCell" id="82d-JF-Cvs" customClass="BookPageCell" customModule="BookCollectionView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
