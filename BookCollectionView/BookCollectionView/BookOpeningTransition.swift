@@ -12,6 +12,7 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
     var transforms = [UICollectionViewCell: CATransform3D]()
     var toViewBackgroundColor: UIColor?
     var isPush = true
+    var interactionController: UIPercentDrivenInteractiveTransition?
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return isPush ? 1 : 1
@@ -103,6 +104,7 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
     private func cleanupPush(fromViewController: BookStoreViewController, toViewController: BookViewController) {
         toViewController.collectionView?.backgroundColor = toViewBackgroundColor
+        toViewController.recognizer = fromViewController.recognizer
     }
     
     // MARK: - POP
@@ -126,5 +128,6 @@ class BookOpeningTransition: NSObject, UIViewControllerAnimatedTransitioning {
     private func cleanupPop(fromViewController: BookViewController, toViewController: BookStoreViewController) {
         fromViewController.collectionView?.backgroundColor = toViewBackgroundColor
         toViewController.selectedCell?.alpha = 1
+        toViewController.recognizer = fromViewController.recognizer
     }
 }

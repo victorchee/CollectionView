@@ -10,6 +10,14 @@ import UIKit
 
 class BookStoreViewController: UICollectionViewController {
     var transition: BookOpeningTransition?
+    var interactionController: UIPercentDrivenInteractiveTransition?
+    var recognizer: UIGestureRecognizer? {
+        didSet {
+            if let recognizer = recognizer {
+                collectionView?.addGestureRecognizer(recognizer)
+            }
+        }
+    }
     
     var books: [Book]? {
         didSet {
@@ -27,6 +35,36 @@ class BookStoreViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         books = BookStore.sharedStore.loadBooks("Books")
+        recognizer = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+    }
+    
+    func handlePinch(sender: UIPinchGestureRecognizer) {
+        switch sender.state {
+        case .Began:
+            interactionController = UIPercentDrivenInteractiveTransition()
+            if sender.scale >= 1 {
+                if sender.view == collectionView {
+                    let book = selectedCell?.book
+                    openBook(book!)
+                }
+            } else {
+                navigationController?.popViewControllerAnimated(true)
+            }
+            
+        case .Changed:
+            if transition!.isPush {
+                let progress = min(max(abs((sender.scale - 1)) / 5, 0), 1)
+                interactionController?.updateInteractiveTransition(progress)
+            } else {
+                let progress = min(max(abs((1 - sender.scale)), 0), 1)
+                interactionController?.updateInteractiveTransition(progress)
+            }
+        case .Ended:
+            interactionController?.finishInteractiveTransition()
+            interactionController = nil
+        default:
+            break
+        }
     }
     
     func openBook(book: Book) {
@@ -66,6 +104,7 @@ extension BookStoreViewController {
     func animationControllerForPresentController(viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let transition = BookOpeningTransition()
         transition.isPush = true
+        transition.interactionController = interactionController
         self.transition = transition
         return transition
     }
@@ -73,6 +112,7 @@ extension BookStoreViewController {
     func animationControllerForDismissController(viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let transition = BookOpeningTransition()
         transition.isPush = false
+        transition.interactionController = interactionController
         self.transition = transition
         return transition
     }

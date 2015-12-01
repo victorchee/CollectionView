@@ -8,7 +8,15 @@
 
 import UIKit
 
-class BookViewController: UICollectionViewController {    
+class BookViewController: UICollectionViewController {
+    var recognizer: UIGestureRecognizer? {
+        didSet {
+            if let recognizer = recognizer {
+                collectionView?.addGestureRecognizer(recognizer)
+            }
+        }
+    }
+    
     var book: Book? {
         didSet {
             collectionView?.reloadData()

@@ -26,4 +26,11 @@ class CustomNavigationController: UINavigationController, UINavigationController
         }
         return nil
     }
+    
+    func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard let animationController =  animationController as? BookOpeningTransition else {
+            return nil
+        }
+        return animationController.interactionController
+    }
 }

@@ -18,7 +18,7 @@
                         <collectionViewLayout key="collectionViewLayout" id="h6k-nL-flR" customClass="BookStoreLayout" customModule="BookCollectionView" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCoverCell" id="3uj-qi-ZWZ" customClass="BookCoverCell" customModule="BookCollectionView" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -121,7 +121,7 @@
         <!--Custom Navigation Controller-->
         <scene sceneID="r7L-yK-WEB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YPM-Da-5B2" customClass="CustomNavigationController" customModule="BookCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="YPM-Da-5B2" customClass="CustomNavigationController" customModule="BookCollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sqd-8e-8cV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
