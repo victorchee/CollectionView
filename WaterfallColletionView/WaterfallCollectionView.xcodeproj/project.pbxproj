@@ -12,6 +12,8 @@
 		F000F4BD1CE419E600D3C239 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F000F4BB1CE419E600D3C239 /* Main.storyboard */; };
 		F000F4BF1CE419E600D3C239 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F000F4BE1CE419E600D3C239 /* Assets.xcassets */; };
 		F000F4C21CE419E600D3C239 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F000F4C01CE419E600D3C239 /* LaunchScreen.storyboard */; };
+		F000F4CA1CE41A4400D3C239 /* WaterfallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000F4C91CE41A4400D3C239 /* WaterfallFlowLayout.swift */; };
+		F000F4CC1CE45BE700D3C239 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F000F4CB1CE45BE700D3C239 /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		F000F4BE1CE419E600D3C239 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F000F4C11CE419E600D3C239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F000F4C31CE419E600D3C239 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F000F4C91CE41A4400D3C239 /* WaterfallFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterfallFlowLayout.swift; sourceTree = "<group>"; };
+		F000F4CB1CE45BE700D3C239 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				F000F4B71CE419E600D3C239 /* AppDelegate.swift */,
 				F000F4B91CE419E600D3C239 /* ViewController.swift */,
+				F000F4CB1CE45BE700D3C239 /* CollectionViewCell.swift */,
+				F000F4C91CE41A4400D3C239 /* WaterfallFlowLayout.swift */,
 				F000F4BB1CE419E600D3C239 /* Main.storyboard */,
 				F000F4BE1CE419E600D3C239 /* Assets.xcassets */,
 				F000F4C01CE419E600D3C239 /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 			files = (
 				F000F4BA1CE419E600D3C239 /* ViewController.swift in Sources */,
 				F000F4B81CE419E600D3C239 /* AppDelegate.swift in Sources */,
+				F000F4CC1CE45BE700D3C239 /* CollectionViewCell.swift in Sources */,
+				F000F4CA1CE41A4400D3C239 /* WaterfallFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +296,7 @@
 				F000F4C81CE419E600D3C239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
