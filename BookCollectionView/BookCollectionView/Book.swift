@@ -23,7 +23,7 @@ class Book {
         return UIImage(named: cover)
     }
     
-    func pageImage(index: Int) -> UIImage? {
+    func pageImage(_ index: Int) -> UIImage? {
         guard let pages = dict?["pages"] as? [String] else {
             return nil
         }

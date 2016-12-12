@@ -26,7 +26,7 @@ class BookStoreViewController: UICollectionViewController {
     }
     
     var selectedCell: BookCoverCell? {
-        guard let indexPath = collectionView?.indexPathForItemAtPoint(CGPoint(x: collectionView!.contentOffset.x + collectionView!.bounds.width / 2.0, y: collectionView!.bounds.height / 2.0)), let cell = collectionView?.cellForItemAtIndexPath(indexPath) as? BookCoverCell else {
+        guard let indexPath = collectionView?.indexPathForItem(at: CGPoint(x: collectionView!.contentOffset.x + collectionView!.bounds.width / 2.0, y: collectionView!.bounds.height / 2.0)), let cell = collectionView?.cellForItem(at: indexPath) as? BookCoverCell else {
             return nil
         }
         return cell
@@ -35,12 +35,12 @@ class BookStoreViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         books = BookStore.sharedStore.loadBooks("Books")
-        recognizer = UIPinchGestureRecognizer(target: self, action: "handlePinch:")
+        recognizer = UIPinchGestureRecognizer(target: self, action: #selector(BookStoreViewController.handlePinch(_:)))
     }
     
-    func handlePinch(sender: UIPinchGestureRecognizer) {
+    func handlePinch(_ sender: UIPinchGestureRecognizer) {
         switch sender.state {
-        case .Began:
+        case .began:
             interactionController = UIPercentDrivenInteractiveTransition()
             if sender.scale >= 1 {
                 if sender.view == collectionView {
@@ -48,51 +48,51 @@ class BookStoreViewController: UICollectionViewController {
                     openBook(book!)
                 }
             } else {
-                navigationController?.popViewControllerAnimated(true)
+                navigationController?.popViewController(animated: true)
             }
             
-        case .Changed:
+        case .changed:
             if transition!.isPush {
                 let progress = min(max(abs((sender.scale - 1)) / 5, 0), 1)
-                interactionController?.updateInteractiveTransition(progress)
+                interactionController?.update(progress)
             } else {
                 let progress = min(max(abs((1 - sender.scale)), 0), 1)
-                interactionController?.updateInteractiveTransition(progress)
+                interactionController?.update(progress)
             }
-        case .Ended:
-            interactionController?.finishInteractiveTransition()
+        case .ended:
+            interactionController?.finish()
             interactionController = nil
         default:
             break
         }
     }
     
-    func openBook(book: Book) {
-        let bookViewController = storyboard?.instantiateViewControllerWithIdentifier("BookViewController") as! BookViewController
+    func openBook(_ book: Book) {
+        let bookViewController = storyboard?.instantiateViewController(withIdentifier: "BookViewController") as! BookViewController
         bookViewController.book = selectedCell?.book
-        bookViewController.view.snapshotViewAfterScreenUpdates(true)
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+        bookViewController.view.snapshotView(afterScreenUpdates: true)
+        DispatchQueue.main.async { () -> Void in
             self.navigationController?.pushViewController(bookViewController, animated: true)
         }
     }
     
     // MARK: - UICollectionViewDataSource
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books?.count ?? 0
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BookCoverCell", forIndexPath: indexPath) as! BookCoverCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCoverCell", for: indexPath) as! BookCoverCell
         cell.book = books?[indexPath.item]
         return cell
     }
     
     // MARK: - UICollectionViewDelegate
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let book = books?[indexPath.row] else {
             return
         }
@@ -101,7 +101,7 @@ class BookStoreViewController: UICollectionViewController {
 }
 
 extension BookStoreViewController {
-    func animationControllerForPresentController(viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationControllerForPresentController(_ viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let transition = BookOpeningTransition()
         transition.isPush = true
         transition.interactionController = interactionController
@@ -109,7 +109,7 @@ extension BookStoreViewController {
         return transition
     }
     
-    func animationControllerForDismissController(viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationControllerForDismissController(_ viewController: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let transition = BookOpeningTransition()
         transition.isPush = false
         transition.interactionController = interactionController

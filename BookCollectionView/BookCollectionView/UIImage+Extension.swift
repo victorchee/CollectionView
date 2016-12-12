@@ -9,20 +9,20 @@
 import UIKit
 
 extension UIImage {
-    func imageWithRoundedCornersSize(cornerRadius: CGFloat, corners: UIRectCorner) -> UIImage {
+    func imageWithRoundedCornersSize(_ cornerRadius: CGFloat, corners: UIRectCorner) -> UIImage {
         UIGraphicsBeginImageContext(size)
         UIBezierPath(roundedRect: CGRect(origin: CGPoint.zero, size: size), byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).addClip()
-        drawInRect(CGRect(origin: CGPoint.zero, size: size))
+        draw(in: CGRect(origin: CGPoint.zero, size: size))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        return image!
     }
     
-    func imageByScalingAndCroppingForSize(targetSize: CGSize) -> UIImage {
+    func imageByScalingAndCroppingForSize(_ targetSize: CGSize) -> UIImage {
         var scaledSize = targetSize
         var thumbnailPoint = CGPoint.zero
         
-        if CGSizeEqualToSize(size, targetSize) == false {
+        if size.equalTo(targetSize) == false {
             let widthFactor = targetSize.width / size.width
             let heightFactor = targetSize.height / size.height
             
@@ -39,11 +39,11 @@ extension UIImage {
         UIGraphicsBeginImageContext(targetSize)
         
         let thumbnailRect = CGRect(origin: thumbnailPoint, size: scaledSize)
-        self.drawInRect(thumbnailRect)
+        self.draw(in: thumbnailRect)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
-        return image
+        return image!
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class BookLayout: UICollectionViewFlowLayout {
-    private var pageSize: CGSize {
+    fileprivate var pageSize: CGSize {
         let ratio: CGFloat = 0.637323943661972 // 图片宽高比
         var width = collectionView!.bounds.width / 2
         var height = collectionView!.bounds.height - 44
@@ -20,29 +20,29 @@ class BookLayout: UICollectionViewFlowLayout {
         }
         return CGSize(width: width, height: height)
     }
-    private var numberOfItems: Int = 0
+    fileprivate var numberOfItems: Int = 0
     
-    override func prepareLayout() {
-        super.prepareLayout()
+    override func prepare() {
+        super.prepare()
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
-        numberOfItems = collectionView?.numberOfItemsInSection(0) ?? 0
-        collectionView?.pagingEnabled = true
+        numberOfItems = collectionView?.numberOfItems(inSection: 0) ?? 0
+        collectionView?.isPagingEnabled = true
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         return CGSize(width: CGFloat(numberOfItems / 2) * collectionView!.bounds.width, height: collectionView!.bounds.height)
     }
     
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes = [UICollectionViewLayoutAttributes]()
         
         for i in 0 ... max(0, numberOfItems - 1) {
-            let indexPath = NSIndexPath(forItem: i, inSection: 0)
-            let attribute = layoutAttributesForItemAtIndexPath(indexPath)
+            let indexPath = IndexPath(item: i, section: 0)
+            let attribute = layoutAttributesForItem(at: indexPath)
             if attribute != nil {
                 attributes.append(attribute!)
             }
@@ -50,8 +50,8 @@ class BookLayout: UICollectionViewFlowLayout {
         return attributes
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let frame = getFrame(collectionView!)
         layoutAttributes.frame = frame // 给布局属性设置 frame，来保证它会与书脊对齐
         
@@ -75,12 +75,12 @@ class BookLayout: UICollectionViewFlowLayout {
         return layoutAttributes
     }
     
-    private func getFrame(collectionView: UICollectionView) -> CGRect {
-        let origin = CGPoint(x: collectionView.bounds.width / 2.0 - pageSize.width / 2.0 + collectionView.contentOffset.x, y: (collectionViewContentSize().height - pageSize.height) / 2.0)
+    fileprivate func getFrame(_ collectionView: UICollectionView) -> CGRect {
+        let origin = CGPoint(x: collectionView.bounds.width / 2.0 - pageSize.width / 2.0 + collectionView.contentOffset.x, y: (collectionViewContentSize.height - pageSize.height) / 2.0)
         return CGRect(origin: origin, size: pageSize)
     }
     
-    private func getRatio(collectionView: UICollectionView, indexPath: NSIndexPath) -> CGFloat {
+    fileprivate func getRatio(_ collectionView: UICollectionView, indexPath: IndexPath) -> CGFloat {
         let page = CGFloat(indexPath.item - indexPath.item % 2) * 0.5 // 计算页面在书本当中的编号，记住书页是双面的。乘以0.5可以得到你当前所在的页面
         var ratio: CGFloat = -0.5 + page - collectionView.contentOffset.x / collectionView.bounds.width // 根据你翻动的权重计算比率
         // 需要将比率范围限制在-0.5到0.5之间。乘以0.1是用来给页面之间添加一个间距使得它们看起来是被遮盖一样
@@ -92,7 +92,7 @@ class BookLayout: UICollectionViewFlowLayout {
         return ratio
     }
     
-    private func getAngle(indexPath: NSIndexPath, ratio: CGFloat) -> CGFloat {
+    fileprivate func getAngle(_ indexPath: IndexPath, ratio: CGFloat) -> CGFloat {
         var angle: CGFloat = 0
         
         if indexPath.item % 2 == 0 {
@@ -106,13 +106,13 @@ class BookLayout: UICollectionViewFlowLayout {
         return angle
     }
     
-    private func makePerspectiveTransform() -> CATransform3D {
+    fileprivate func makePerspectiveTransform() -> CATransform3D {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -2000.0 // 修改m34来增加透视
         return transform
     }
     
-    private func getRotation(indexPath: NSIndexPath, ratio: CGFloat) -> CATransform3D {
+    fileprivate func getRotation(_ indexPath: IndexPath, ratio: CGFloat) -> CATransform3D {
         var transform = makePerspectiveTransform()
         let angle = getAngle(indexPath, ratio: ratio)
         transform = CATransform3DRotate(transform, angle, 0, 1, 0)

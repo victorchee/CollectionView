@@ -11,10 +11,10 @@ import UIKit
 class BookStore {
     static let sharedStore = BookStore()
     
-    func loadBooks(plist: String) -> [Book] {
+    func loadBooks(_ plist: String) -> [Book] {
         var books = [Book]()
         
-        guard let path = NSBundle.mainBundle().pathForResource(plist, ofType: "plist") else {
+        guard let path = Bundle.main.path(forResource: plist, ofType: "plist") else {
             return books
         }
         

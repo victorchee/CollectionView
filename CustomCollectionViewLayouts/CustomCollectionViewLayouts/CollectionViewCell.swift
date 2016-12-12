@@ -15,15 +15,15 @@ class CollectionViewCell: UICollectionViewCell {
         super.init(coder: aDecoder)
         
         contentView.layer.cornerRadius = 5
-        contentView.layer.borderColor = UIColor.blackColor().CGColor
+        contentView.layer.borderColor = UIColor.black.cgColor
         contentView.layer.borderWidth = 1
         contentView.layer.shouldRasterize = true
-        contentView.layer.rasterizationScale = UIScreen.mainScreen().scale
+        contentView.layer.rasterizationScale = UIScreen.main.scale
         contentView.clipsToBounds = true
     }
     
-    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.applyLayoutAttributes(layoutAttributes)
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
         
         let circularLayoutAttributes = layoutAttributes as! CircularCollectionViewLayoutAttributes
         layer.anchorPoint = circularLayoutAttributes.anchorPoint
