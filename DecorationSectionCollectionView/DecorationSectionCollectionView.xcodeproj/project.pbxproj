@@ -12,6 +12,7 @@
 		F09F4A761EA35DBA00EB92F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09F4A751EA35DBA00EB92F4 /* Assets.xcassets */; };
 		F09F4A791EA35DBA00EB92F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09F4A771EA35DBA00EB92F4 /* LaunchScreen.storyboard */; };
 		F09F4A811EA35DEC00EB92F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F4A801EA35DEC00EB92F4 /* ViewController.swift */; };
+		F09F4A831EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F4A821EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F09F4A781EA35DBA00EB92F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F09F4A7A1EA35DBA00EB92F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F09F4A801EA35DEC00EB92F4 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F09F4A821EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorationSectionFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				F09F4A6E1EA35DBA00EB92F4 /* AppDelegate.swift */,
 				F09F4A801EA35DEC00EB92F4 /* ViewController.swift */,
+				F09F4A821EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift */,
 				F09F4A721EA35DBA00EB92F4 /* Main.storyboard */,
 				F09F4A751EA35DBA00EB92F4 /* Assets.xcassets */,
 				F09F4A771EA35DBA00EB92F4 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09F4A811EA35DEC00EB92F4 /* ViewController.swift in Sources */,
+				F09F4A831EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift in Sources */,
 				F09F4A6F1EA35DBA00EB92F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
