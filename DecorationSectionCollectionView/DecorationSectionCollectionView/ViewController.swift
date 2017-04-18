@@ -49,6 +49,7 @@ class ViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     
         // Configure the cell
+        cell.backgroundColor = UIColor.lightGray
     
         return cell
     }
