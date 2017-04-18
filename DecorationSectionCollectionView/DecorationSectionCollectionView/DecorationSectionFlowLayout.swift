@@ -8,34 +8,10 @@
 
 import UIKit
 
-protocol CollectionViewDelegateFlowLayout: UICollectionViewDelegateFlowLayout {
+public protocol CollectionViewDelegateFlowLayout: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, backgroundColorForSectionAt section: Int) -> UIColor
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumSectionSpacingForSectionAt section: Int) -> CGFloat
 }
-
-//class DecorationSectionFlowLayout: UICollectionViewFlowLayout {
-//    override func prepare() {
-//        super.prepare()
-//        
-//        register(DecorationSectionReusableView.self, forDecorationViewOfKind: String(describing: DecorationSectionReusableView.self))
-//    }
-//
-//    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-//        guard let attributes = super.layoutAttributesForElements(in: rect) else { return nil}
-//        var allAttributes = attributes
-//        for attribute in attributes {
-//            if attribute.representedElementCategory == .cell && attribute.frame.minX == sectionInset.left {
-//                let decorationiAttributes = DecorationSectionFlowLayoutAttributes(forDecorationViewOfKind: String(describing: DecorationSectionReusableView.self), with: attribute.indexPath)
-//                decorationiAttributes.frame = CGRect(x: 0, y: attribute.frame.minY - sectionInset.top, width: collectionViewContentSize.width, height: itemSize.height + minimumLineSpacing + sectionInset.top + sectionInset.bottom)
-//                decorationiAttributes.zIndex = attribute.zIndex - 1
-//                if let collectionView = self.collectionView, let delegate = collectionView.delegate as? CollectionViewDelegateFlowLayout {
-//                    decorationiAttributes.backgroundColor = delegate.collectionView(collectionView, layout: self, backgroundColorForSectionAt: attribute.indexPath.section)
-//                }
-//                allAttributes.append(decorationiAttributes)
-//            }
-//        }
-//        return attributes
-//    }
-//}
 
 class DecorationSectionFlowLayout: UICollectionViewFlowLayout {
     private var decorationViewAttributes = [UICollectionViewLayoutAttributes]()
@@ -66,9 +42,19 @@ class DecorationSectionFlowLayout: UICollectionViewFlowLayout {
         for section in 0..<numberOfSections {
             guard let numberOfItems = self.collectionView?.numberOfItems(inSection: section),
                 numberOfItems > 0,
-                let firstItem = self.layoutAttributesForItem(at: IndexPath(item: 0, section: section)),
-                let lastItem = self.layoutAttributesForItem(at: IndexPath(item: numberOfItems - 1, section: section)) else {
+                var firstItem = self.layoutAttributesForItem(at: IndexPath(item: 0, section: section)),
+                var lastItem = self.layoutAttributesForItem(at: IndexPath(item: numberOfItems - 1, section: section)) else {
                     continue
+            }
+            var hasHeader = false
+            if let header = self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: section)) {
+                firstItem = header
+                hasHeader = true
+            }
+            var hasFooter = false
+            if let footer = self.layoutAttributesForSupplementaryView(ofKind: UICollectionElementKindSectionFooter, at: IndexPath(item: 0, section: section)) {
+                lastItem = footer
+                hasFooter = true
             }
             var sectionInset = self.sectionInset
             if let inset = delegate.collectionView?(self.collectionView!, layout: self, insetForSectionAt: section) {
@@ -76,15 +62,17 @@ class DecorationSectionFlowLayout: UICollectionViewFlowLayout {
             }
             
             var sectionFrame = firstItem.frame.union(lastItem.frame)
-            sectionFrame.origin.x = 0
-            sectionFrame.origin.y -= sectionInset.top
             
             if scrollDirection == .horizontal {
-                sectionFrame.size.width += sectionInset.left + sectionInset.right
-                sectionFrame.size.height += collectionView!.frame.height
+                sectionFrame.origin.x -= hasHeader ? 0 : sectionInset.left
+                sectionFrame.origin.y = 0
+                sectionFrame.size.width += (hasHeader ? 0 : sectionInset.left) + (hasFooter ? 0 : sectionInset.right)
+                sectionFrame.size.height = collectionView!.frame.height
             } else {
-                sectionFrame.size.width += collectionView!.frame.width
-                sectionFrame.size.height += sectionInset.top + sectionInset.bottom
+                sectionFrame.origin.x = 0
+                sectionFrame.origin.y -= hasHeader ? 0 : sectionInset.top
+                sectionFrame.size.width = collectionView!.frame.width
+                sectionFrame.size.height += (hasHeader ? 0 : sectionInset.top) + (hasFooter ? 0 : sectionInset.bottom)
             }
             
             let attribute = DecorationSectionFlowLayoutAttributes(forDecorationViewOfKind: String(describing: DecorationSectionReusableView.self), with: IndexPath(item: 0, section: section))

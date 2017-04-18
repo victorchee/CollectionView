@@ -49,20 +49,41 @@ class ViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
     
         // Configure the cell
-        cell.backgroundColor = UIColor.orange
     
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionElementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+            header.backgroundColor = UIColor.magenta.withAlphaComponent(0.7)
+            return header
+        } else {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            footer.backgroundColor = UIColor.brown.withAlphaComponent(0.7)
+            return footer
+        }
     }
 }
 
 extension ViewController: CollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumSectionSpacingForSectionAt section: Int) -> CGFloat {
+        if section == 0 {
+            return 5
+        } else if section == 1 {
+            return 20
+        } else {
+            return 80
+        }
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, backgroundColorForSectionAt section: Int) -> UIColor {
         if section == 0 {
-            return UIColor.blue
+            return UIColor.red
         } else if section == 1 {
-            return UIColor.brown
+            return UIColor.green
         } else {
-            return UIColor.purple
+            return UIColor.yellow
         }
     }
 }

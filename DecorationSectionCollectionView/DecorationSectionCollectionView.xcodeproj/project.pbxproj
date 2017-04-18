@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F014E9801EA64DE900047EB9 /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014E97F1EA64DE900047EB9 /* CollectionReusableView.swift */; };
 		F09F4A6F1EA35DBA00EB92F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09F4A6E1EA35DBA00EB92F4 /* AppDelegate.swift */; };
 		F09F4A741EA35DBA00EB92F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09F4A721EA35DBA00EB92F4 /* Main.storyboard */; };
 		F09F4A761EA35DBA00EB92F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09F4A751EA35DBA00EB92F4 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F014E97F1EA64DE900047EB9 /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
 		F09F4A6B1EA35DB900EB92F4 /* DecorationSectionCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DecorationSectionCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F09F4A6E1EA35DBA00EB92F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09F4A731EA35DBA00EB92F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				F09F4A6E1EA35DBA00EB92F4 /* AppDelegate.swift */,
 				F09F4A801EA35DEC00EB92F4 /* ViewController.swift */,
+				F014E97F1EA64DE900047EB9 /* CollectionReusableView.swift */,
 				F09F4A821EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift */,
 				F09F4A721EA35DBA00EB92F4 /* Main.storyboard */,
 				F09F4A751EA35DBA00EB92F4 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09F4A811EA35DEC00EB92F4 /* ViewController.swift in Sources */,
+				F014E9801EA64DE900047EB9 /* CollectionReusableView.swift in Sources */,
 				F09F4A831EA35E5C00EB92F4 /* DecorationSectionFlowLayout.swift in Sources */,
 				F09F4A6F1EA35DBA00EB92F4 /* AppDelegate.swift in Sources */,
 			);
@@ -308,6 +312,7 @@
 				F09F4A7F1EA35DBA00EB92F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
