@@ -1,5 +1,5 @@
 //
-//  DynamicCollectionViewFlowLayout.h
+//  AttachmentFlowLayout.h
 //  DynamicCollectionView
 //
 //  Created by qihaijun on 14-4-16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DynamicCollectionViewFlowLayout : UICollectionViewFlowLayout
+@interface AttachmentFlowLayout : UICollectionViewFlowLayout
 
 @end

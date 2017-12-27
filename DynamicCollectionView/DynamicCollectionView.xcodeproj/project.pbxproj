@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1CCA921FF348AD00D75C68 /* AttachmentFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CCA911FF348AD00D75C68 /* AttachmentFlowLayout.m */; };
 		BB105B8018FE523B0060F1A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB105B7F18FE523B0060F1A7 /* Foundation.framework */; };
 		BB105B8218FE523B0060F1A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB105B8118FE523B0060F1A7 /* CoreGraphics.framework */; };
 		BB105B8418FE523B0060F1A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB105B8318FE523B0060F1A7 /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		BB105BA918FE523B0060F1A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB105BA718FE523B0060F1A7 /* InfoPlist.strings */; };
 		BB105BAB18FE523B0060F1A7 /* DynamicCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB105BAA18FE523B0060F1A7 /* DynamicCollectionViewTests.m */; };
 		BB105BB618FE527E0060F1A7 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB105BB518FE527E0060F1A7 /* CollectionViewController.m */; };
-		BB105BB918FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BB105BB818FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F1CCA911FF348AD00D75C68 /* AttachmentFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentFlowLayout.m; sourceTree = "<group>"; };
 		BB105B7C18FE523B0060F1A7 /* DynamicCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB105B7F18FE523B0060F1A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BB105B8118FE523B0060F1A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,8 +55,7 @@
 		BB105BAA18FE523B0060F1A7 /* DynamicCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicCollectionViewTests.m; sourceTree = "<group>"; };
 		BB105BB418FE527E0060F1A7 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		BB105BB518FE527E0060F1A7 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
-		BB105BB718FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		BB105BB818FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		BB105BB718FE54E10060F1A7 /* AttachmentFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentFlowLayout.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +120,8 @@
 				BB105B9118FE523B0060F1A7 /* Main.storyboard */,
 				BB105BB418FE527E0060F1A7 /* CollectionViewController.h */,
 				BB105BB518FE527E0060F1A7 /* CollectionViewController.m */,
-				BB105BB718FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.h */,
-				BB105BB818FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.m */,
+				BB105BB718FE54E10060F1A7 /* AttachmentFlowLayout.h */,
+				1F1CCA911FF348AD00D75C68 /* AttachmentFlowLayout.m */,
 				BB105B9718FE523B0060F1A7 /* Images.xcassets */,
 				BB105B8618FE523B0060F1A7 /* Supporting Files */,
 			);
@@ -256,7 +256,7 @@
 			files = (
 				BB105B9018FE523B0060F1A7 /* AppDelegate.m in Sources */,
 				BB105B8C18FE523B0060F1A7 /* main.m in Sources */,
-				BB105BB918FE54E10060F1A7 /* DynamicCollectionViewFlowLayout.m in Sources */,
+				1F1CCA921FF348AD00D75C68 /* AttachmentFlowLayout.m in Sources */,
 				BB105BB618FE527E0060F1A7 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

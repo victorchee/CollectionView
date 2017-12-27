@@ -1,14 +1,14 @@
 //
-//  DynamicCollectionViewFlowLayout.m
+//  AttachmentFlowLayout.m
 //  DynamicCollectionView
 //
 //  Created by qihaijun on 14-4-16.
 //  Copyright (c) 2014年 qihaijun. All rights reserved.
 //
 
-#import "DynamicCollectionViewFlowLayout.h"
+#import "AttachmentFlowLayout.h"
 
-@interface DynamicCollectionViewFlowLayout ()
+@interface AttachmentFlowLayout ()
 
 @property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
 @property (nonatomic, strong) NSMutableSet *visibleIndexPaths;
@@ -16,10 +16,9 @@
 
 @end
 
-@implementation DynamicCollectionViewFlowLayout
+@implementation AttachmentFlowLayout
 
-- (void)prepareLayout
-{
+- (void)prepareLayout {
     [super prepareLayout];
     if (!self.dynamicAnimator) {
         self.minimumInteritemSpacing = 10;
@@ -82,18 +81,15 @@
     }];
 }
 
-- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
-{
+- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     return [self.dynamicAnimator itemsInRect:rect];
 }
 
-- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.dynamicAnimator layoutAttributesForCellAtIndexPath:indexPath];
 }
 
-- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
-{
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     UIScrollView *scrollView = self.collectionView;
     CGFloat delta = newBounds.origin.y - scrollView.bounds.origin.y;
     self.latestDelta = delta;
@@ -117,4 +113,5 @@
     
     return NO;
 }
+
 @end
