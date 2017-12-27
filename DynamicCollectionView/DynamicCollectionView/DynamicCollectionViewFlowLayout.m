@@ -36,14 +36,16 @@
     NSSet *itemsIndexPathsInVisibleRectSet = [NSSet setWithArray:[itemsInVisibleRectArray valueForKey:@"indexPath"]];
     
     NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(UIAttachmentBehavior *behavior, NSDictionary *bindings) {
-        BOOL currentlyVisible = [itemsIndexPathsInVisibleRectSet member:[[[behavior items] firstObject] indexPath]] != nil;
+        UICollectionViewLayoutAttributes *attributes = (UICollectionViewLayoutAttributes *)behavior.items.firstObject;
+        BOOL currentlyVisible = [itemsIndexPathsInVisibleRectSet member:attributes.indexPath] != nil;
         return !currentlyVisible;
     }];
     
     NSArray *nolongerVisibleBehaviors = [self.dynamicAnimator.behaviors filteredArrayUsingPredicate:predicate];
-    [nolongerVisibleBehaviors enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [nolongerVisibleBehaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *obj, NSUInteger idx, BOOL *stop) {
         [self.dynamicAnimator removeBehavior:obj];
-        [self.visibleIndexPaths removeObject:[[[obj items] firstObject] indexPath]];
+        UICollectionViewLayoutAttributes *attributes = (UICollectionViewLayoutAttributes *)obj.items.firstObject;
+        [self.visibleIndexPaths removeObject:attributes.indexPath];
     }];
     
     
@@ -61,11 +63,11 @@
         behavior.frequency = 1.0f;
         
         if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {
-            CGFloat yDistanceFromTouch = fabsf(touchLocation.y - behavior.anchorPoint.y);
-            CGFloat xDistanceFromTouch = fabsf(touchLocation.x - behavior.anchorPoint.x);
+            CGFloat yDistanceFromTouch = fabs(touchLocation.y - behavior.anchorPoint.y);
+            CGFloat xDistanceFromTouch = fabs(touchLocation.x - behavior.anchorPoint.x);
             CGFloat scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1500.0f;
             
-            UICollectionViewLayoutAttributes *item = behavior.items.firstObject;
+            UICollectionViewLayoutAttributes *item = (UICollectionViewLayoutAttributes *)behavior.items.firstObject;
             CGPoint center = item.center;
             if (self.latestDelta < 0) {
                 center.y += MAX(self.latestDelta, self.latestDelta*scrollResistance);
@@ -98,11 +100,11 @@
     CGPoint touchLocation = [scrollView.panGestureRecognizer locationInView:scrollView];
     
     [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *behavior, NSUInteger idx, BOOL *stop) {
-        CGFloat yDistanceFromTouch = fabsf(touchLocation.y - behavior.anchorPoint.y);
-        CGFloat xDistanceFromTouch = fabsf(touchLocation.x - behavior.anchorPoint.x);
+        CGFloat yDistanceFromTouch = fabs(touchLocation.y - behavior.anchorPoint.y);
+        CGFloat xDistanceFromTouch = fabs(touchLocation.x - behavior.anchorPoint.x);
         CGFloat scrollResistance = (yDistanceFromTouch + xDistanceFromTouch) / 1500.0f;
         
-        UICollectionViewLayoutAttributes *item = behavior.items.firstObject;
+        UICollectionViewLayoutAttributes *item = (UICollectionViewLayoutAttributes *)behavior.items.firstObject;
         CGPoint center = item.center;
         if (delta < 0) {
             center.y += MAX(delta, delta*scrollResistance);
