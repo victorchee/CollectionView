@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F13F5C320A5473F005A26B9 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F13F5C220A5473F005A26B9 /* CenteredCollectionViewFlowLayout.swift */; };
+		1FCD9EFB20A54BE7008D0B93 /* PagingFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCD9EFA20A54BE7008D0B93 /* PagingFlowLayout.swift */; };
 		F0FC750520A4F99D004EB5F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC750420A4F99D004EB5F1 /* AppDelegate.swift */; };
 		F0FC750720A4F99E004EB5F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC750620A4F99E004EB5F1 /* ViewController.swift */; };
 		F0FC750A20A4F99E004EB5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0FC750820A4F99E004EB5F1 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F13F5C220A5473F005A26B9 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		1FCD9EFA20A54BE7008D0B93 /* PagingFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingFlowLayout.swift; sourceTree = "<group>"; };
 		F0FC750120A4F99D004EB5F1 /* PaginationCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaginationCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0FC750420A4F99D004EB5F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0FC750620A4F99E004EB5F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 			children = (
 				F0FC750420A4F99D004EB5F1 /* AppDelegate.swift */,
 				F0FC750620A4F99E004EB5F1 /* ViewController.swift */,
+				1F13F5C220A5473F005A26B9 /* CenteredCollectionViewFlowLayout.swift */,
+				1FCD9EFA20A54BE7008D0B93 /* PagingFlowLayout.swift */,
 				F0FC750820A4F99E004EB5F1 /* Main.storyboard */,
 				F0FC750B20A4F9A0004EB5F1 /* Assets.xcassets */,
 				F0FC750D20A4F9A0004EB5F1 /* LaunchScreen.storyboard */,
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0FC750720A4F99E004EB5F1 /* ViewController.swift in Sources */,
+				1FCD9EFB20A54BE7008D0B93 /* PagingFlowLayout.swift in Sources */,
 				F0FC750520A4F99D004EB5F1 /* AppDelegate.swift in Sources */,
+				1F13F5C320A5473F005A26B9 /* CenteredCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YA5C67G66D;
+				DEVELOPMENT_TEAM = 5H2TUBSY8A;
 				INFOPLIST_FILE = PaginationCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,7 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YA5C67G66D;
+				DEVELOPMENT_TEAM = 5H2TUBSY8A;
 				INFOPLIST_FILE = PaginationCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
