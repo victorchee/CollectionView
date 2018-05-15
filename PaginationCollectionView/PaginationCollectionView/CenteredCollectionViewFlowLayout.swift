@@ -8,6 +8,7 @@
 
 import UIKit
 
+// PaginEnabled设置为NO
 public extension UICollectionView {
     /// A convenient way to create a UICollectionView and configue it with a CenteredCollectionViewFlowLayout.
     ///

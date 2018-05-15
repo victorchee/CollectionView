@@ -37,33 +37,33 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UIScrollViewDelegate {
-    // PaginEnabled设置为NO
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let x = targetContentOffset.pointee.x
-        
-        let collectionViewFlowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let leftInset = collectionViewFlowLayout.sectionInset.left
-        let pageWidth = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing
-        
-        let moveWidth = x - pageWidth * CGFloat(selectedIndex)
-        // 当位移的绝对值大于分页宽度的一半时，滚动到相邻页
-        if moveWidth < -pageWidth * 0.5 {
-            selectedIndex -= 1
-        } else if moveWidth > pageWidth * 0.5 {
-            selectedIndex += 1
-        }
-        
-        if abs(velocity.x) >= 2 {
-            // 滚动到目标位置
-            targetContentOffset.pointee.x = pageWidth * CGFloat(selectedIndex)
-        } else {
-            // 回退到滚动之前位置
-            targetContentOffset.pointee.x = scrollView.contentOffset.x
-            scrollView.setContentOffset(CGPoint(x: pageWidth * CGFloat(selectedIndex), y: 0), animated: true)
-        }
-    }
-}
+//extension ViewController: UIScrollViewDelegate {
+//    // PaginEnabled设置为NO
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        let x = targetContentOffset.pointee.x
+//        
+//        let collectionViewFlowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+////        let leftInset = collectionViewFlowLayout.sectionInset.left
+//        let pageWidth = collectionViewFlowLayout.itemSize.width + collectionViewFlowLayout.minimumLineSpacing
+//        
+//        let moveWidth = x - pageWidth * CGFloat(selectedIndex)
+//        // 当位移的绝对值大于分页宽度的一半时，滚动到相邻页
+//        if moveWidth < -pageWidth * 0.5 {
+//            selectedIndex -= 1
+//        } else if moveWidth > pageWidth * 0.5 {
+//            selectedIndex += 1
+//        }
+//        
+//        if abs(velocity.x) >= 2 {
+//            // 滚动到目标位置
+//            targetContentOffset.pointee.x = pageWidth * CGFloat(selectedIndex)
+//        } else {
+//            // 回退到滚动之前位置
+//            targetContentOffset.pointee.x = scrollView.contentOffset.x
+//            scrollView.setContentOffset(CGPoint(x: pageWidth * CGFloat(selectedIndex), y: 0), animated: true)
+//        }
+//    }
+//}
 
 //extension ViewController: UIScrollViewDelegate {
 //    private func indexOfMajorCell() -> Int {
